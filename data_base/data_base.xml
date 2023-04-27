@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+    <Product>
+        <Object name="s" id="1" seller_id="1" brend_id="1" category_id="1"/>
+        <Object name="sd" id="2" seller_id="1" brend_id="2" category_id="2"/>
+        <Object name="a" id="3" seller_id="2" brend_id="3" category_id="3"/>
+    </Product>
+    <Seller>
+        <Object name="d" id="1"/>
+        <Object name="s" id="2"/>
+    </Seller>
+    <Brend>
+        <Object name="f" id="1"/>
+        <Object name="wgr" id="2"/>
+        <Object name="d" id="3"/>
+    </Brend>
+    <Category>
+        <Object name="g" id="1"/>
+        <Object name="shg" id="2"/>
+        <Object name="f" id="3"/>
+    </Category>
+</Main>

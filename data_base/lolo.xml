@@ -1,0 +1,14 @@
+<Main>
+    <Product>
+        <Object name="asdf" id="1" seller_id="1" brend_id="1" category_id="1"/>
+    </Product>
+    <Seller>
+        <Object name="dsdgf" id="1"/>
+    </Seller>
+    <Brend>
+        <Object name="dfghdfg" id="1"/>
+    </Brend>
+    <Category>
+        <Object name="dfggdgf" id="1"/>
+    </Category>
+</Main>
