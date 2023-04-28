@@ -7,8 +7,9 @@ using namespace std;
 using namespace tinyxml2;
 
 void run_xml();
+void create_database_xml(string file_name);
 
-struct ID{
+struct ID_xml{
 public:
 	string prod_id;
 };
@@ -16,7 +17,7 @@ public:
 class Manager_xml{
 public:
 	XMLDocument doc;
-	ID id;
+	ID_xml id;
 	string file_name;
 	
 	Manager_xml(string file_name){
@@ -26,8 +27,6 @@ public:
 	}
 	int add_id(XMLElement* root, XMLElement* item, string id, string title, string foo_id){
 
-		
-		
 		if(foo_id == "0"){
 			item->SetAttribute("name", title.c_str());
     		item->SetAttribute("id", id.c_str());
@@ -89,6 +88,7 @@ public:
 
 		root->InsertEndChild(newItem);
 		doc.SaveFile(file_name.c_str());
+		return 0;
 	}
 
 	int add_seller(){
@@ -210,15 +210,16 @@ public:
 				<< show(doc.FirstChildElement("Main")->FirstChildElement("Brend"), brend_id) << ' ' 
 				<< show(doc.FirstChildElement("Main")->FirstChildElement("Category"), category_id) << '\n';
 				cout << "------------------------------------------------------\n\n";
+				
 			}
 		}
-		
+		return 0;
 	}
-
 	~Manager_xml(){
 		cout << "connection has been disconect!" << "\n";
 	}
 };
+
 
 void run_xml(string file_name){
 	string user_choise;
@@ -244,4 +245,32 @@ void run_xml(string file_name){
 		if(red == 1) break;
 	}while(user_choise != "0");
 }
+void create_database_xml(string file_name){
+	XMLDocument doc;
+    doc.LoadFile(file_name.c_str());
+
+    XMLElement* new_item = doc.NewElement("Main");
+    doc.InsertEndChild(new_item);
+
+    new_item = doc.NewElement("Product");
+    new_item->SetText("");
+    doc.FirstChildElement("Main")->InsertEndChild(new_item);
+
+    new_item = doc.NewElement("Seller");
+    new_item->SetText("");
+    doc.FirstChildElement("Main")->InsertEndChild(new_item);
+
+    new_item = doc.NewElement("Brend");
+    new_item->SetText("");
+    doc.FirstChildElement("Main")->InsertEndChild(new_item);
+
+    new_item = doc.NewElement("Category");
+    new_item->SetText("");
+    doc.FirstChildElement("Main")->InsertEndChild(new_item);
+
+    doc.SaveFile(file_name.c_str());
+	return;
+	}
+	
+
 
