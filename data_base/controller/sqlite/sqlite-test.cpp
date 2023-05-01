@@ -5,6 +5,7 @@ using namespace std;
 void run_sqlite();
 void reset_db_sqlite(string file_name);
 void create_db_sqlite(string file_name);
+
 struct ID{
 	int id = 0;
 };
@@ -118,10 +119,9 @@ public:
 	void empty_check(string file_name){
 		// Выполняем SQL-запрос для проверки базы данных на пустоту
 		sqlite3_stmt* stmt;
+
 		const char* query = "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'";
 		int rc = sqlite3_prepare_v2(db, query, -1, &stmt, nullptr);
-
-
 
 		// Выполняем запрос и получаем количество записей в таблицах
 		int count = 0;
@@ -133,10 +133,7 @@ public:
 
 		sqlite3_finalize(stmt); // освобождаем ресурсы
 		
-		//if (count == 0) //create_database_sqlite(file_name);
-		
-		
-
+		if (count == 0) create_db_sqlite(file_name);
 	}
 	~Manager(){
 		sqlite3_close(this->db);

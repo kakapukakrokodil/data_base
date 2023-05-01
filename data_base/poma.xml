@@ -1,0 +1,18 @@
+<Main>
+    <Product>
+        <Object name="1" id="1" seller_id="1" brend_id="1" category_id="1"/>
+        <Object name="ww" id="2" seller_id="2" brend_id="2" category_id="2"/>
+    </Product>
+    <Seller>
+        <Object name="1" id="1"/>
+        <Object name="w2" id="2"/>
+    </Seller>
+    <Brend>
+        <Object name="dd" id="1"/>
+        <Object name="hf" id="2"/>
+    </Brend>
+    <Category>
+        <Object name="ee" id="1"/>
+        <Object name="fd" id="2"/>
+    </Category>
+</Main>
