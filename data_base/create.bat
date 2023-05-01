@@ -1,2 +1,1 @@
-g++ main.cpp -o main
-main
+PySide6-uic build.ui > build.py
